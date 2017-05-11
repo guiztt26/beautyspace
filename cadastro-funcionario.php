@@ -1,6 +1,6 @@
 <?php
-$conexao = mysqli_connect("localhost","root","familias") or die("Não foi possível estabelecer conexão com o servidor");
-mysqli_select_db($conexao, 'beautyspace') or die("Não foi possível acessar o banco de dados");
+
+include "includes/conexao.php"
 
 $cpf_funcionario = $_POST["cpf_funcionario"];
 $nome_completo = $_POST["nome_completo"];
