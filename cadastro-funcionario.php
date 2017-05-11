@@ -25,7 +25,7 @@ if(mysqli_affected_rows($conexao) == 0)
 	$result1 = mysqli_query($conexao, "INSERT INTO funcionario VALUES ('$cpf_funcionario','$nome_completo','$rg_funcionario', '$dt_nascimento_funcionario', '$sexo_funcionario', '$estado_civil', '$telefone_fixo_funcionario', '$telefone_movel_funcionario', '$email_funcionario')");
 	if($result1)
 	{
-		$result2 = mysqli_query($conexao, "INSERT INTO contrato_funcionario VALUES ('$cpf_funcionario', '$id_cargo', '$descricao_contrato', '$data_inicio', '$data_fim')");
+		$result2 = mysqli_query($conexao, "INSERT INTO contrato_funcionario (cpf_funcionario, id_cargo, descricao, data_inicio, data_fim) VALUES ('$cpf_funcionario', '$id_cargo', '$descricao_contrato', '$data_inicio', '$data_fim')");
 		if($result2)
 			echo "Funcionário cadastrado com sucesso!";
 		else
