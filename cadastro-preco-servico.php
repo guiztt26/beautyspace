@@ -1,6 +1,6 @@
 <?php
-$conexao = mysqli_connect("localhost","root","") or die("Não foi possível estabelecer conexão com o servidor");
-mysqli_select_db($conexao, 'beautyspace') or die("Não foi possível acessar o banco de dados");
+
+include "conexao.php";
 
 $id_servico = $_POST["id_servico"];
 $preco_servico = $_POST["preco_servico"];
