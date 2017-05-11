@@ -16,16 +16,17 @@ $data_inicio = $_POST["data_inicio"];
 $data_fim = $_POST["data_fim"];
 $nome_cargo = $_POST["nome_cargo"];
 
-$id_cargo = mysqli_query($conexao, "SELECT id_cargo FROM cargo WHERE nome_cargo = '$nome_cargo'");
+$cargo = mysqli_query($conexao, "SELECT id_cargo FROM cargo WHERE nome_cargo = '$nome_cargo'");
+$id_cargo = mysqli_fetch_assoc($cargo)['id_cargo'];
 
 mysqli_query($conexao, "SELECT cpf_funcionario FROM funcionario WHERE cpf_funcionario = '$cpf_funcionario'");
 if(mysqli_affected_rows($conexao) == 0)
 {
-	mysqli_query($conexao, "INSERT INTO funcionario VALUES ('$cpf_funcionario','$nome_completo','$rg_funcionario', '$dt_nascimento_funcionario', '$sexo_funcionario', '$estado_civil', '$telefone_fixo_funcionario', '$telefone_movel_funcionario', '$email_funcionario')");
-	if(mysqli_affected_rows($conexao) == 1)
+	$result1 = mysqli_query($conexao, "INSERT INTO funcionario VALUES ('$cpf_funcionario','$nome_completo','$rg_funcionario', '$dt_nascimento_funcionario', '$sexo_funcionario', '$estado_civil', '$telefone_fixo_funcionario', '$telefone_movel_funcionario', '$email_funcionario')");
+	if($result1)
 	{
-		mysqli_query($conexao, "INSERT INTO contrato_funcionario VALUES ('$cpf_funcionario', '$id_cargo', '$descricao_contrato', '$data_inicio', '$data_fim')");
-		if(mysqli_affected_rows($conexao) == 1)
+		$result2 = mysqli_query($conexao, "INSERT INTO contrato_funcionario VALUES ('$cpf_funcionario', '$id_cargo', '$descricao_contrato', '$data_inicio', '$data_fim')");
+		if($result2)
 			echo "Funcionário cadastrado com sucesso!";
 		else
 			echo "Erro no cadastro do Contrato";
