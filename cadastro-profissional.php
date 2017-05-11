@@ -43,7 +43,7 @@ if(mysqli_affected_rows($conexao) == 0)
 			else
 			{
 				mysqli_query($conexao, "DELETE FROM profissional_estetica WHERE cpf_profissional = '$cpf_profissional'");
-				mysqli_query($conexao, "DELETE FROM contrato_profissional WHERE id_contrato = '$id_contrato'")
+				mysqli_query($conexao, "DELETE FROM contrato_profissional WHERE id_contrato = '$id_contrato'");
 				echo "Erro ao cadastrar o serviço";
 			}
 		}
