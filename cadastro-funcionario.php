@@ -1,6 +1,6 @@
 <?php
 
-include "includes/conexao.php"
+include "includes/conexao.php";
 
 $cpf_funcionario = $_POST["cpf_funcionario"];
 $nome_completo = $_POST["nome_completo"];
