@@ -12,7 +12,7 @@ if(mysqli_affected_rows($conexao) == 0)
 	if(mysql_affected_rows($conexao) == 1)
 		echo "Cargo cadastrado com sucesso!";
 	else
-		echo "Erro no cadastro do Cargo";
+		echo "Erro no cadastro do cargo";
 }
 else
 	echo "Cargo já cadastrado!";
