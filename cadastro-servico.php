@@ -5,7 +5,7 @@ include "includes/conexao.php";
 $tipo_servico = $_POST["tipo_servico"];
 $descricao = $_POST["descricao"];
 $preco_servico = $_POST["preco_servico"];
-$data_validade = $_POST["dt_validade"];
+$data_validade = $_POST["data_validade"];
 
 mysqli_query($conexao, "SELECT tipo_servico FROM servico WHERE tipo_servico = '$tipo_servico'");
 if(mysqli_affected_rows($conexao) == 0)
