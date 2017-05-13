@@ -24,7 +24,7 @@ $tipo_servico = $_POST["tipo_servico"];
 $aluguel = mysqli_query($conexao, "SELECT id_aluguel FROM aluguel WHERE tipo_aluguel = '$tipo_aluguel'");
 $id_aluguel = mysqli_fetch_assoc($aluguel)['id_aluguel'];
 
-$servico = mysqli_query($conexao, "SELECT id_servico FROM servico WHERE tipo_servico = '$tipo_servico'"))
+$servico = mysqli_query($conexao, "SELECT id_servico FROM servico WHERE tipo_servico = '$tipo_servico'");
 $id_servico = mysqli_fetch_assoc($servico)['id_servico'];
 
 mysqli_query($conexao, "SELECT cpf_profissional FROM profissional_estetica WHERE cpf_profissional = '$cpf_profissional'");
