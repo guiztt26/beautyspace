@@ -19,11 +19,11 @@ if(mysqli_affected_rows($conexao) == 1)
 		if($result1)
 			echo "Preço do serviço cadastrado com sucesso!";
 		else
-			echo "Existe um preço cadastrado com data de validade posterior a tentativa de cadastro. Por favor cadastre um preço para este serviço com data superior à $dt";
+			echo "Erro no cadastro do preço do serviço";	
 	}
 	else
-		echo "Erro no cadastro do preço do serviço";
-}
+		echo "Existe um preço cadastrado com data de validade posterior a tentativa de cadastro. Por favor cadastre um preço para este serviço com data superior à $dt";
+		}
 else
 	echo "Não existe um serviço cadastrado com este nome. Por favor, verifique se digitou o nome corretamente ou cadastre o serviço desejado.";
 
