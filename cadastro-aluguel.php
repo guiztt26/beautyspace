@@ -18,7 +18,10 @@ if(mysqli_affected_rows($conexao) == 0)
 		if($result2)
 			echo "Aluguel cadastrado com sucesso!";
 		else
+		{
+			mysqli_query($conexao, "DELETE FROM aluguel WHERE id_aluguel = '$id_aluguel'");
 			echo "Erro no cadastro do preço do aluguel";
+		}
 	}
 	else
 		echo "Erro no cadastro do Aluguel";
