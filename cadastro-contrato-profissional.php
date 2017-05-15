@@ -16,40 +16,31 @@ $servico = mysqli_query($conexao, "SELECT id_servico FROM servico WHERE tipo_ser
 $id_servico = mysqli_fetch_assoc($servico)['id_servico'];
 
 mysqli_query($conexao, "SELECT cpf_profissional FROM contrato_profissional WHERE cpf_profissional = '$cpf_profissional'");
-if(mysqli_affected_rows($conexao) == 0)
+if(mysqli_affected_rows($conexao) == 1)
 {
-	$result1 = mysqli_query($conexao, "INSERT INTO contrato_profissional (descricao, data_inicio, data_fim, cpf_profissional, id_aluguel) VALUES ('$descricao_contrato', '$data_inicio', '$data_fim', '$cpf_profissional', '$id_aluguel')");
-	if($result1)
-	{
-		$result2 = mysqli_query($conexao, "INSERT INTO servico_contrato_profissional_estetica (id_contrato, id_servico) VALUES ('$id_contrato', '$id_servico')");
-		if($result2)
-			echo "Contrato cadastrado com sucesso!";
-		else
-			echo "Erro no cadastro do Contrato";
-	}
-	else
-		echo "Erro no cadastro do Contrato";
-}
-else 
-{
-	$dt = mysqli_query($conexao, "SELECT data_fim FROM contrato_profissional WHERE data_fim => '$data_inicio'")
+	$data = mysqli_query($conexao, "SELECT data_fim FROM contrato_profissional WHERE data_fim => '$data_inicio'");
 	if (mysqli_affected_rows($conexao) == 0)
 	{
+		$dt = mysqli_fetch_assoc($data)['data_fim'];
 		$result1 = mysqli_query($conexao, "INSERT INTO contrato_profissional (descricao, data_inicio, data_fim, cpf_profissional, id_aluguel) VALUES ('$descricao_contrato', '$data_inicio', '$data_fim', '$cpf_profissional', '$id_aluguel')");
 		if($result1)
 		{
+			$id_contrato = mysqli_insert_id($conexao);
 			$result2 = mysqli_query($conexao, "INSERT INTO servico_contrato_profissional_estetica (id_contrato, id_servico) VALUES ('$id_contrato', '$id_servico')");
 			if($result2)
 				echo "Contrato cadastrado com sucesso!";
 			else
+				mysqli_query($conexa, "DELETE FROM contrato_profissional WHERE id_contrato = '$id_contrato'");
 				echo "Erro no cadastro do Contrato";	
 		}
 		else
 		echo "Erro no cadastro do Contrato";
 	}
 	else
-		echo "Existe um contrato vigente cadastrado para este profissional. Cadastre um contrato com data inicial posteior a $dt"
+		echo "Existe um contrato vigente cadastrado para este profissional. Cadastre um contrato com data inicial posteior a $dt";
 }
+else
+	echo "CPF não encontrado. Por favor, verifique se digitou o CPF corretamente ou cadastre o profissional de estética.";
 
 mysqli_close($conexao);
 ?>
