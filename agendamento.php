@@ -46,7 +46,7 @@ $id_contrato_servico = mysqli_fetch_assoc($contrato_servico)['id_contrato_servic
 				}
 				else
 				{
-					echo "O profissional possui uma pessoa agendada para este horário no dia $data. Selecione um horário disponível abaixo: <br>"
+					echo "O profissional possui uma pessoa agendada para este horário no dia $data. Selecione um horário disponível abaixo: <br>";
 					echo "<tr><td><b>Horário</b></td><td><b>Cliente</b></td></tr>";
 					for($i = 8; $i < 20; $i++)
 					{
@@ -56,7 +56,7 @@ $id_contrato_servico = mysqli_fetch_assoc($contrato_servico)['id_contrato_servic
 				}
 			}	
 			else
-				echo "Este cliente já possui um horário marcado no dia e hora selecionados. Por favor, escolha um horário disponível."
+				echo "Este cliente já possui um horário marcado no dia e hora selecionados. Por favor, escolha um horário disponível.";
 
 			mysqli_close($conexao);
 			?>
