@@ -4,15 +4,15 @@ include "includes/conexao.php";
 
 $tipo_aluguel = $_POST["tipo_aluguel"];
 $preco_aluguel = $_POST["preco_aluguel"];
-$data_validade = $_POST["rg_funcionario"];
+$data_validade = $_POST["data_validade"];
 
 $aluguel = mysqli_query($conexao, "SELECT id_aluguel FROM aluguel WHERE tipo_aluguel = '$tipo_aluguel'");
 $id_aluguel = mysqli_fetch_assoc($aluguel)['id_aluguel'];
 
-mysqli_query($conexao, "SELECT id_aluguel FROM preco_aluguel WHERE id_aluguel = '$id_aluguel'");
+mysqli_query($conexao, "SELECT id_aluguel FROM aluguel WHERE id_aluguel = '$id_aluguel'");
 if(mysqli_affected_rows($conexao) == 1)
 {
-	$data = mysqli_query($conexao, "SELECT data_validade FROM preco_servico WHERE data_validade > '$data_validade' and id_aluguel = '$id_aluguel'");
+	$data = mysqli_query($conexao, "SELECT data_validade FROM preco_aluguel WHERE data_validade > '$data_validade' and id_aluguel = '$id_aluguel'");
 	if(mysqli_affected_rows($conexao) == 0)
 	{
 		$result1 = mysqli_query($conexao, "INSERT INTO preco_aluguel (id_aluguel, preco_aluguel, data_validade) VALUES ('$id_aluguel','$preco_aluguel','$data_validade')");
