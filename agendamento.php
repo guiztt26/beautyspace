@@ -46,13 +46,19 @@ $id_contrato_servico = mysqli_fetch_assoc($contrato_servico)['id_contrato_servic
 				}
 				else
 				{
-					echo "O profissional possui uma pessoa agendada para este horário no dia $data. Selecione um horário disponível abaixo: <br>";
-					echo "<tr><td><b>Horário</b></td><td><b>Cliente</b></td></tr>";
+					echo "O profissional possui uma pessoa agendada para este horário no dia $data. Selecione um horário disponível abaixo:";
+					echo "<br>";
+					echo "<table><tr><td><b>Horário</b></td><td><b>Cliente</b></td></tr>";
+					$time = new DataTime('8:00');
 					for($i = 8; $i < 20; $i++)
 					{
-						$result1 = mysqli_query($conexao, "SELECT cliente.nome_completo FROM clinte, agenda WHERE cliente.cpf_cliente = agenda.cpf_cliente and id_contrato_servico = 'id_contrato_servico' and horario = '$i'");
-						echo "<tr><td>$i</td><td>mysqli_fetch_assoc($result1)['cpf_cliente']</td></tr>";
+						$horario = $time->format('H:i');
+						$result1 = mysqli_query($conexao, "SELECT cliente.nome_completo FROM clinte, agenda WHERE cliente.cpf_cliente = agenda.cpf_cliente and id_contrato_servico = 'id_contrato_servico' and horario = '$horario'");
+						$result2 = mysqli_fetch_assoc($result1)['nome_completo'];
+						echo "<tr><td>$horario</td><td>$result2</td></tr>";
+						$time->add(new DateInterval('PT' . 30 . 'M'));
 					}
+					echo "</table>";
 				}
 			}	
 			else
