@@ -35,7 +35,7 @@
 				mysqli_query($conexao, "SELECT contrato_profissional.cpf_profissional FROM contrato_profissional, servico_contrato_profissional_estetica, agenda WHERE contrato_profissional.cpf_profissional = '$cpf_profissional' AND  servico_contrato_profissional_estetica.id_contrato_servico = '$id_contrato_servico' AND agenda.data_agendada = '$data' AND agenda.horario = '$horario'");
 				if(mysqli_affected_rows($conexao) == 0)
 				{
-					$result1 = mysqli_query($conexao, "INSERT INTO agenda (cpf_cliente, id_contrato_servico, cpf_funcionario, data_agendada, horario) VALUES ('$cpf_cliente', '$id_contrato_servico', '$cpf_funcionario', '$data', '$horario')");
+					$result1 = mysqli_query($conexao, "INSERT INTO agenda (cpf_cliente, id_contrato_servico, cpf_funcionario, data_agendada, horario VALUES ('$cpf_cliente', '$id_contrato_servico', '$cpf_funcionario', '$data', '$horario')");
 					if($result1)
 						echo "Serviço agendado com sucesso!";
 					else
