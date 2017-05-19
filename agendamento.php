@@ -5,7 +5,7 @@ include "includes/conexao.php";
 $cpf_cliente = $_POST["cpf_cliente"];
 $nome_profissional = $_POST["nome_profissional"];
 $tipo_servico = $_POST["tipo_servico"];
-$data = $_POST["data"];
+$data_agendada = $_POST["data"];
 $horario = $_POST["horario"];
 $cpf_profissional = $_POST["cpf_profissional"];
 
@@ -20,6 +20,7 @@ $id_contrato = mysqli_fetch_assoc($contrato_profissional)['id_contrato'];
 
 $contrato_servico = mysqli_query($conexao, "SELECT id_contrato_servico FROM servico_contrato_profissional_estetica WHERE id_contrato = '$id_contrato' and id_servico = '$id_servico'");
 $id_contrato_servico = mysqli_fetch_assoc($contrato_servico)['id_contrato_servico'];
+
 ?>
 
 <!DOCTYPE html>
