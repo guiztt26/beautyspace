@@ -15,7 +15,7 @@
 			$tipo_servico = $_POST["tipo_servico"];
 			$data = $_POST["data"];
 			$horario = $_POST["horario"];
-			$cpf_profissional = $_POST["cpf_profissional"];
+			$cpf_funcionario = $_POST["cpf_funcionario"];
 
 			$profissional = mysqli_query($conexao, "SELECT cpf_profissional FROM profissional_estetica WHERE nome_completo = '$nome_profissional'");
 			$cpf_profissional = mysqli_fetch_assoc($profissional)['cpf_profissional'];
