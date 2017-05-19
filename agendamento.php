@@ -35,26 +35,26 @@ $id_contrato_servico = mysqli_fetch_assoc($contrato_servico)['id_contrato_servic
 			mysqli_query($conexao, "SELECT cpf_cliente FROM agenda WHERE cpf_cliente = '$cpf_cliente' AND data_agendada = '$data' AND horario = '$horario'");
 			if(mysqli_affected_rows($conexao) == 0)
 			{
-				mysqli_query($conexao, "SELECT a.cpf_profissional FROM contrato_profissinal as a, servico_contrato_profissional_estetica as b, agenda as c WHERE a.cpf_profissional = '$cpf_profissional' AND  b.id_contrato_servico = '$id_contrato_servico' AND c.data_agendada = '$data' AND c.horario = '$horario'");
+				mysqli_query($conexao, "SELECT contrato_profissional.cpf_profissional FROM contrato_profissional, servico_contrato_profissional_estetica, agenda WHERE contrato_profissional.cpf_profissional = '$cpf_profissional' AND  servico_contrato_profissional_estetica.id_contrato_servico = '$id_contrato_servico' AND agenda.data_agendada = '$data' AND agenda.horario = '$horario'");
 				if(mysqli_affected_rows($conexao) == 0)
 				{
 					$result1 = mysqli_query($conexao, "INSERT INTO agenda (cpf_cliente, id_contrato_servico, cpf_funcionario, data_agendada, horario) VALUES ('$cpf_cliente', '$id_contrato_servico', '$cpf_funcionario', '$data', '$horario')");
 					if($result1)
 						echo "Serviço agendado com sucesso!";
 					else
-						echo "Falha ao agendar o serviço.";
+						echo mysqli_error($conexao);
 				}
 				else
 				{
 					echo "O profissional possui uma pessoa agendada para este horário no dia $data. Selecione um horário disponível abaixo:";
 					echo "<br>";
 					echo "<table><tr><td><b>Horário</b></td><td><b>Cliente</b></td></tr>";
-					$time = new DataTime('8:00');
+					$time = new DateTime('8:00');
 					for($i = 8; $i < 20; $i++)
 					{
 						$horario = $time->format('H:i');
 						$result2 = mysqli_query($conexao, "SELECT cliente.nome_completo FROM clinte, agenda WHERE cliente.cpf_cliente = agenda.cpf_cliente and id_contrato_servico = '$id_contrato_servico' and horario = '$horario'");
-						$result3 = mysqli_fetch_assoc($result2)['nome_completo'];
+						$result3 = mysqli_fetch_assoc($result2)['cliente.nome_completo'];
 						echo "<tr><td>$horario</td><td>$result3</td></tr>";
 						$time->add(new DateInterval('PT' . 30 . 'M'));
 					}
