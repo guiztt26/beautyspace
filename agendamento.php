@@ -1,25 +1,13 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<?php
-
-=======
 <?php
 			
->>>>>>> 761b46ad2d9abc5a74d07fd87a3c9644d7b40ce7
 include "includes/conexao.php";
 
 $cpf_cliente = $_POST["cpf_cliente"];
 $nome_profissional = $_POST["nome_profissional"];
 $tipo_servico = $_POST["tipo_servico"];
-<<<<<<< HEAD
-$data_agendada = $_POST["data"];
-$horario = $_POST["horario"];
-$cpf_profissional = $_POST["cpf_profissional"];
-=======
 $data = $_POST["data_agendada"];
 $horario = $_POST["horario"];
 $cpf_funcionario = $_POST["cpf_funcionario"];
->>>>>>> 761b46ad2d9abc5a74d07fd87a3c9644d7b40ce7
 
 $profissional = mysqli_query($conexao, "SELECT cpf_profissional FROM profissional_estetica WHERE nome_completo = '$nome_profissional'");
 $cpf_profissional = mysqli_fetch_assoc($profissional)['cpf_profissional'];
@@ -32,16 +20,8 @@ $id_contrato = mysqli_fetch_assoc($contrato_profissional)['id_contrato'];
 
 $contrato_servico = mysqli_query($conexao, "SELECT id_contrato_servico FROM servico_contrato_profissional_estetica WHERE id_contrato = '$id_contrato' and id_servico = '$id_servico'");
 $id_contrato_servico = mysqli_fetch_assoc($contrato_servico)['id_contrato_servico'];
-<<<<<<< HEAD
-
 ?>
 
-=======
->>>>>>> c5a2f1583c804507c80d64241305a2ae7a525cc9
-=======
-?>
-
->>>>>>> 761b46ad2d9abc5a74d07fd87a3c9644d7b40ce7
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
