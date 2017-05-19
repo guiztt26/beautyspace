@@ -13,7 +13,7 @@
 			$cpf_cliente = $_POST["cpf_cliente"];
 			$nome_profissional = $_POST["nome_profissional"];
 			$tipo_servico = $_POST["tipo_servico"];
-			$data = $_POST["data"];
+			$data = $_POST["data_agendada"];
 			$horario = $_POST["horario"];
 			$cpf_funcionario = $_POST["cpf_funcionario"];
 
