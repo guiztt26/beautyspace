@@ -53,7 +53,7 @@ $id_contrato_servico = mysqli_fetch_assoc($contrato_servico)['id_contrato_servic
 					for($i = 8; $i < 20; $i++)
 					{
 						$horario = $time->format('H:i');
-						$result1 = mysqli_query($conexao, "SELECT cliente.nome_completo FROM clinte, agenda WHERE cliente.cpf_cliente = agenda.cpf_cliente and id_contrato_servico = 'id_contrato_servico' and horario = '$horario'");
+						$result1 = mysqli_query($conexao, "SELECT cliente.nome_completo FROM clinte, agenda WHERE cliente.cpf_cliente = agenda.cpf_cliente and id_contrato_servico = '$id_contrato_servico' and horario = '$horario'");
 						$result2 = mysqli_fetch_assoc($result1)['nome_completo'];
 						echo "<tr><td>$horario</td><td>$result2</td></tr>";
 						$time->add(new DateInterval('PT' . 30 . 'M'));
