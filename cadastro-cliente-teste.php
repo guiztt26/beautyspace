@@ -149,7 +149,7 @@ var TODAY = monthname[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear()
 							if(mysqli_affected_rows($conexao) == 1)
 							{
 								echo "Cliente cadastrado com sucesso!<br><br>";
-								echo "<a href="index - teste.html">Inicio</a><a href="cadastro-cliente.html">Cadastrar novo cliente</a>";
+								echo "<a href="index-teste.html">Inicio</a><a href="cadastro-cliente.html">Cadastrar novo cliente</a>";
 							}
 							else
 								echo "Erro no cadastro do cliente";
@@ -169,7 +169,7 @@ var TODAY = monthname[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear()
 						if(mysqli_affected_rows($conexao) == 1)
 						{
 							echo "Cliente cadastrado com sucesso!";
-							echo "<a href="index - teste.html">Inicio</a><a href="cadastro-cliente.html">Cadastrar novo cliente</a>";
+							echo "<a href="index-teste.html">Inicio</a><a href="cadastro-cliente.html">Cadastrar novo cliente</a>";
 						}
 						else
 							echo "Erro no cadastro do cliente";
