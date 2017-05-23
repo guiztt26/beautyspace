@@ -39,12 +39,11 @@ echo "<td><select name=\"nome_profissional\" size=\"40\" id=\"nome_profissional\
 
 $r1 = mysqli_query($conexao, "SELECT nome_completo FROM profissional_estetica");
 
-for($i=0; $i < mysqli_affected_rows($conexao); $i++)  
+for($i=0, $i < mysqli_affected_rows($conexao), $i++)  
 {
-	$r2 = mysqli_result($conexao, $r1, $i, "nome_completo");
-  	echo "<option value=\"$r2\">$r2</option>";
+  $r2 = mysqli_result($conexao, $r1, $i, "nome_completo");
+  echo "<option value="$r2">$r2</option>";
 }
-
 echo "</select></td></tr>";
 ?>
 <tr>
