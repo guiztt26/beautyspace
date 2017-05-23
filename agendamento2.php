@@ -34,18 +34,18 @@
 
 include "includes/conexao.php";
 
-echo "<tr>";
-echo "<td><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>Profissional de Estética:</strong></font></td>";
-echo "<td><select name="sexo_cliente" size="40" id="sexo_cliente">";
+echo "<tr><td><font size=\"2\" face=\"Verdana, Arial, Helvetica, sans-serif\"><strong>Profissional de Estética:</strong></font></td>";
+echo "<td><select name=\"nome_profissional\" size=\"40\" id=\"nome_profissional\">";
 
 $r1 = mysqli_query($conexao, "SELECT nome_completo FROM profissional_estetica");
 
-for($i=0, $i < mysqli_affected_rows($conexao), $i++)  
+for($i=0; $i < mysqli_affected_rows($conexao); $i++)  
 {
-  $r2 = mysqli_result($conexao, $r1, $i, "nome_completo");
-  echo "<option value="$r2">$r2</option>";
+	$r2 = mysqli_result($conexao, $r1, $i, "nome_completo");
+  	echo "<option value=\"$r2\">$r2</option>";
 }
-echo "</select></td></tr>"
+
+echo "</select></td></tr>";
 ?>
 <tr>
   <td><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>CPF do Funcionário:</strong></font></td>
