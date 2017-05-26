@@ -10,12 +10,12 @@ mysqli_select_db($conexao, 'beautyspace') or die("Não foi possível acessar o b
 
 ?>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js">
-	JQuery(function($){
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script>
 		$(document).ready(function() {
     		$('#example').DataTable();
 		} );
-	} );
 </script>
 
 
@@ -30,19 +30,17 @@ mysqli_select_db($conexao, 'beautyspace') or die("Não foi possível acessar o b
 	<tbody>
 	<?php
 
-		$query = "SELECT nome_completo, telefone_celular, emai FROM cliente";
+		$query = "SELECT nome_completo, telefone_movel, email FROM cliente";
 		$result1 = mysqli_query($conexao, $query);
-
-		echo "<tr>";
 
 		while($cliente = mysqli_fetch_assoc($result1))
 		{
-			echo "<td>mysqli_fech_assoc(result1)['nome_completo']</tr>";
-			echo "<td>mysqli_fech_assoc(result1)['telefone_celular']</tr>";
-			echo "<td>mysqli_fech_assoc(result1)['email']</tr>";
+			echo "<tr>";
+			echo "<td>mysqli_fech_assoc($result1)['nome_completo']</td>";
+			echo "<td>mysqli_fech_assoc($result1)['telefone_movel']</td>";
+			echo "<td>mysqli_fech_assoc($result1)['email']</td>";
+			echo "</tr>";
 		}
-
-		echo "</tr>";
 
 		mysqli_close($conexao);
 	?>
