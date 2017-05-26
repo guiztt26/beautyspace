@@ -1,5 +1,6 @@
 <?php
 
+include "includes/validacao.php";
 include "includes/conexao.php";
 
 $cpf_cliente = $_POST["cpf_cliente"];

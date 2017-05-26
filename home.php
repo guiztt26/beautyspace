@@ -1,3 +1,10 @@
+<?php
+
+include "includes/validacao.php";
+
+?>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <!-- DW6 -->
@@ -45,50 +52,39 @@ var TODAY = monthname[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear()
       <ul>
         <li>Atendimento ao Cliente
           <ul>
-            <li><a href="agendamento.html">Agendar Atendimento</a></li>
-            <li><a href="">Alterar Atendimento Agendado</a></li>
-            <li><a href="cadastro-cliente.html">Cadastrar Cliente </a></li>
-            <li><a href="">Alterar Cadastro do Cliente</a></li>
+            <li><a href="agendamento-form.php">Agendar Atendimento</a></li>
+            <li><a href="cadastro-cliente-form.php">Cadastrar Cliente </a></li>
           </ul>
         </li><br>
         <li>Gerencial
           <ul>
             <li>Profissional de Estética
               <ul>
-                <li><a href="cadastro-profissional.html">Cadastro de Profissional</a></li>
-                <li><a href="">Alteração de Cadastro de Profissional</a></li>
-                <li><a href="cadastro-contrato-profissional.html">Cadastro de Contrato de Profissional</a></li>
-                <li><a href="">Alteração de Contrato de Profissional</a></li>              
+                <li><a href="cadastro-profissional-form.php">Cadastro de Profissional</a></li>
+                <li><a href="cadastro-contrato-profissional-form.php">Cadastro de Contrato de Profissional</a></li>              
               </ul>
             </li>
             <li>Serviço
               <ul>
-                <li><a href="cadastro-servico.html">Cadastro de Tipo de Serviço</a></li>
-                <li><a href="">Alteração de Tipo de Serviço</a></li>
-                <li><a href="cadastro-preco-servico.html">Cadastro de Preço de Serviço</a></li>
-                <li><a href="">Alteração de Preço de Serviço</a></li>              
+                <li><a href="cadastro-servico-form.php">Cadastro de Tipo de Serviço</a></li>
+                <li><a href="cadastro-preco-servico-form.php">Cadastro de Preço de Serviço</a></li>           
               </ul>
             </li>
             <li>Aluguel
               <ul>
-                <li><a href="cadastro-aluguel.html">Cadastro de Tipo de Aluguel</a></li>
-                <li><a href="">Alteração de Tipo de Aluguel</a></li>
-                <li><a href="cadastro-preco-aluguel.html">Cadastro de Preço de Aluguel</a></li>
-                <li><a href="">Alteração de Preço de Aluguel</a></li>              
+                <li><a href="cadastro-aluguel-form.php">Cadastro de Tipo de Aluguel</a></li>
+                <li><a href="cadastro-preco-aluguel-form.php">Cadastro de Preço de Aluguel</a></li>        
               </ul>
             </li>
             <li>Funcionário
               <ul>
-                <li><a href="cadastro-funcionario.html">Cadastro de Funcionário</a></li>
-                <li><a href="">Alteração de Cadastro de Funcionário</a></li>
-                <li><a href="cadastro-contrato-funcionario.html">Cadastro de Contrato de Funcionário</a></li>
-                <li><a href="">Alteração de Contrato de Funcionário</a></li>              
+                <li><a href="cadastro-funcionario-form.php">Cadastro de Funcionário</a></li>
+                <li><a href="cadastro-contrato-funcionario-form.php">Cadastro de Contrato de Funcionário</a></li>   
               </ul>
             </li>
             <li>Cargo
               <ul>
-                <li><a href="cadastro-cargo.html">Cadastro de Cargo</a></li>
-                <li><a href="">Alteração de Cargo</a></li>             
+                <li><a href="cadastro-cargo-form.php">Cadastro de Cargo</a></li>             
               </ul>
              </li>
           </ul>

@@ -1,3 +1,9 @@
+<?php
+
+include "includes/validacao.php";
+
+?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -84,7 +90,7 @@
 </tr>
 </table>
 </form>
-<div align="center"><font face="Arial, Helvetica, sans-serif">[ <strong><a href="index.html">Voltar</a> </strong>]</font></div>
+<div align="center"><font face="Arial, Helvetica, sans-serif">[ <strong><a href="home.php">Voltar</a> </strong>]</font></div>
 </div>
 </body>
 </html>

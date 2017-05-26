@@ -1,5 +1,6 @@
 <?php
 
+include "includes/validacao.php";
 include "includes/conexao.php";
 
 $tipo_servico = $_POST["tipo_servico"];

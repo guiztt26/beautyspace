@@ -1,8 +1,14 @@
+<?php
+
+include "includes/validacao.php";
+
+?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <meta charset = "UTF-8">
-<title>BeautySpace - Cadastro de Serviços</title>
+<title>BeautySpace - Cadastro de Preços de Alugueis</title>
 <style type="text/css">
 <!--
 .style1 {
@@ -16,23 +22,19 @@
 <div id="meio" style="position:absolute; width:1361px; height:639px; z-index:0; left: 2px; top: -2px; background-color: #EAEAEA; layer-background-color: #EAEAEA; border: 1px none #000000;">
 <div align="center">
   <p>&nbsp;</p>
-  <p><span class="style1"><font size="5" face="Arial, Helvetica, sans-serif">Cadastro de Tipos de Serviços </font></span><br>
+  <p><span class="style1"><font size="5" face="Arial, Helvetica, sans-serif">Cadastro de Preços de Alugueis </font></span><br>
     <br>
   </p>
 </div>
-<form name="cadastrar" method="post" action="cadastro-servico.php" id="cadastrar">
+<form name="cadastrar" method="post" action="cadastro-preco-aluguel.php" id="cadastrar">
   <table width="538" border="0" align="center" cellpadding="0" cellspacing="1">
 <tr>
-<td width="176"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>Tipo do Serviço:</strong></font></td>
-<td width="359"><input name="tipo_servico" type="text" id="tipo_servico" size="40" maxlength="30"></td>
+<td width="176"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>Tipo do Aluguel:</strong></font></td>
+<td width="359"><input name="tipo_aluguel" type="text" id="tipo_aluguel" size="40" maxlength="30"></td>
 </tr>
 <tr>
-<td><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>Descrição do Serviço: </strong></font></td>
-<td><input name="descricao" type="text" id="descricao" size="40" maxlength="255"></td>
-</tr>
-<tr>
-<td><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>Preço do Serviço: </strong></font></td>
-<td><input name="preco_servico" type="text" id="preco_servico" size="40" maxlength="8"></td>
+<td><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>Preço do Aluguel: </strong></font></td>
+<td><input name="preco_aluguel" type="text" id="preco_aluguel" size="40" maxlength="8"></td>
 </tr>
 <tr>
 <td width="176"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Preço válido até: </font></strong></td>
@@ -45,7 +47,7 @@
 </tr>
 </table>
 </form>
-<div align="center"><font face="Arial, Helvetica, sans-serif">[ <strong><a href="index.html">Voltar</a> </strong>]</font></div>
+<div align="center"><font face="Arial, Helvetica, sans-serif">[ <strong><a href="home.php">Voltar</a> </strong>]</font></div>
 </div>
 </body>
 </html>

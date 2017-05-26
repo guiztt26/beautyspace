@@ -1,5 +1,6 @@
 <?php
 
+include "includes/validacao.php";
 include "includes/conexao.php";
 
 $nome_cargo = $_POST["nome_cargo"];

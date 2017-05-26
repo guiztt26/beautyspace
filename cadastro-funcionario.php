@@ -1,5 +1,6 @@
 <?php
 
+include "includes/validacao.php";
 include "includes/conexao.php";
 
 $cpf_funcionario = $_POST["cpf_funcionario"];

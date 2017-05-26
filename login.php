@@ -66,35 +66,20 @@ top: 50%; }
     <td colspan="7" bgcolor="#003366"><img src="imagens/mm_spacer.gif" alt="" width="1" height="1" border="0" /></td>
   </tr>
   <tr>
-    <td width="327" height="255">&nbsp;</td>
-    <td width="4">&nbsp;</td>
-    <td width="23">&nbsp;</td>
-    <td width="162"><div align="right">
-      <p class="pageName style3"><strong>Usuário:</strong></p>
-      </div>
-    <div align="right"></div>
-    <div align="right">
-      <p class="pageName style3"><strong>Senha:</strong></p>
-      </div></td>
-    <td width="8"><p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-    <p>&nbsp;</p></td>
-    <td width="267"><p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>
-        <input name="text2" type="text" id="text" />
-      </p>
-      <p>
-        <input name="text" type="text" id="Text1" />
-      </p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-    <p>&nbsp;</p>    </td>
-	<td width="338">&nbsp;</td>
+    <form name="dados_login" method="post" action="autenticar.php">
+      <TABLE>
+        <TR>
+          <TD>Email</TD>
+          <TD><INPUT TYPE = "text" NAME = "email"></TD>
+        </TR>
+        <TR>
+          <TD>Password</TD>
+          <TD><INPUT TYPE = "password" NAME = "password"></TD>
+        </TR>
+      </TABLE>
+      <INPUT TYPE = "submit" VALUE = "Acessar" NAME = "acessar">
+      <INPUT TYPE = "reset" VALUE = "Limpar" NAME = "Limpar">
+    </FORM>
   </tr>
 </table>
 <div id="divCenter">

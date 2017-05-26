@@ -1,5 +1,6 @@
 <?php
 
+include "includes/validacao.php";
 include "includes/conexao.php";
 
 $tipo_aluguel = $_POST["tipo_aluguel"];
