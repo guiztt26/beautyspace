@@ -10,6 +10,8 @@ mysqli_select_db($conexao, 'beautyspace') or die("Não foi possível acessar o b
 
 ?>
 
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 <script>
@@ -36,9 +38,9 @@ mysqli_select_db($conexao, 'beautyspace') or die("Não foi possível acessar o b
 		while($cliente = mysqli_fetch_assoc($result1))
 		{
 			echo "<tr>";
-			echo "<td>mysqli_fech_assoc($result1)['nome_completo']</td>";
-			echo "<td>mysqli_fech_assoc($result1)['telefone_movel']</td>";
-			echo "<td>mysqli_fech_assoc($result1)['email']</td>";
+			echo "<td>{$cliente['nome_completo']}</td>";
+			echo "<td>{$cliente['telefone_movel']}</td>";
+			echo "<td>{$cliente['email']}</td>";
 			echo "</tr>";
 		}
 

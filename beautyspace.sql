@@ -60,8 +60,8 @@ DROP TABLE IF EXISTS `aluguel`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `aluguel` (
   `id_aluguel` int(11) NOT NULL AUTO_INCREMENT,
-  `tipo_aluguel` varchar(30) NOT NULL,
-  `descricao` varchar(100) DEFAULT NULL,
+  `tipo_aluguel` varchar(48) NOT NULL,
+  `descricao` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_aluguel`),
   UNIQUE KEY `id_aluguel` (`id_aluguel`),
   UNIQUE KEY `tipo_aluguel` (`tipo_aluguel`)
@@ -114,7 +114,7 @@ DROP TABLE IF EXISTS `cliente`;
 CREATE TABLE `cliente` (
   `cpf_cliente` char(11) NOT NULL,
   `nome_completo` varchar(48) DEFAULT NULL,
-  `rg` int(11) DEFAULT NULL,
+  `rg` char(11) DEFAULT NULL,
   `email` varchar(30) DEFAULT NULL,
   `data_nascimento` date DEFAULT NULL,
   `telefone_fixo` varchar(13) DEFAULT NULL,
@@ -123,8 +123,8 @@ CREATE TABLE `cliente` (
   `estado_civil` varchar(10) DEFAULT NULL,
   `sexo` char(1) DEFAULT NULL,
   `profissao` varchar(25) DEFAULT NULL,
-  `cep` int(11) DEFAULT NULL,
-  `numero` int(11) DEFAULT NULL,
+  `cep` char(11) DEFAULT NULL,
+  `numero` char(11) DEFAULT NULL,
   `complemento` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`cpf_cliente`),
   UNIQUE KEY `cpf_cliente` (`cpf_cliente`),
@@ -214,7 +214,7 @@ DROP TABLE IF EXISTS `endereco`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `endereco` (
-  `cep` int(11) NOT NULL,
+  `cep` char(11) NOT NULL,
   `logradouro` varchar(48) DEFAULT NULL,
   `bairro` varchar(15) DEFAULT NULL,
   `cidade` varchar(25) DEFAULT NULL,
@@ -243,7 +243,7 @@ DROP TABLE IF EXISTS `funcionario`;
 CREATE TABLE `funcionario` (
   `cpf_funcionario` char(11) NOT NULL,
   `nome_completo` varchar(48) DEFAULT NULL,
-  `rg` int(11) DEFAULT NULL,
+  `rg` char(11) DEFAULT NULL,
   `data_nascimento` date DEFAULT NULL,
   `sexo` char(2) DEFAULT NULL,
   `estado_civil` varchar(10) DEFAULT NULL,
@@ -360,7 +360,7 @@ DROP TABLE IF EXISTS `profissional_estetica`;
 CREATE TABLE `profissional_estetica` (
   `cpf_profissional` char(11) NOT NULL,
   `nome_completo` varchar(48) DEFAULT NULL,
-  `rg` int(11) DEFAULT NULL,
+  `rg` char(11) DEFAULT NULL,
   `data_nascimento` date DEFAULT NULL,
   `sexo` char(2) DEFAULT NULL,
   `estado_civil` varchar(10) DEFAULT NULL,
@@ -394,7 +394,7 @@ DROP TABLE IF EXISTS `servico`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `servico` (
   `id_servico` int(11) NOT NULL AUTO_INCREMENT,
-  `tipo_servico` varchar(30) NOT NULL,
+  `tipo_servico` varchar(48) NOT NULL,
   `descricao` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_servico`),
   UNIQUE KEY `id_servico` (`id_servico`),
@@ -449,7 +449,7 @@ DROP TABLE IF EXISTS `status_agenda`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `status_agenda` (
   `id_status_agenda` int(11) NOT NULL AUTO_INCREMENT,
-  `descricao` varchar(15) NOT NULL,
+  `descricao` varchar(50) NOT NULL,
   PRIMARY KEY (`id_status_agenda`),
   UNIQUE KEY `id_status_agenda` (`id_status_agenda`),
   UNIQUE KEY `descricao` (`descricao`)
