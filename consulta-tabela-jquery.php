@@ -11,6 +11,11 @@ mysqli_select_db($conexao, 'beautyspace') or die("Não foi possível acessar o b
 ?>
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+<style>
+.dataTable td {
+    color:#333;
+}
+</style>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
@@ -24,23 +29,25 @@ mysqli_select_db($conexao, 'beautyspace') or die("Não foi possível acessar o b
 <table id="example" class="display" cellspacing="0" width="100%">
 	<thead>
 		<tr>
-			<th>Nome</th>
-			<th>Telefone Celular</th>
-			<th>E-mail</th>
+			<th>Serviço</th>
+			<th>Preço</th>
+			<th>Validade</th>
+			<th>Opções</th>
 		</tr>
 	</thead>
 	<tbody>
 	<?php
 
-		$query = "SELECT nome_completo, telefone_movel, email FROM cliente";
+		$query = "SELECT * FROM servico, preco_servico WHERE servico.id_servico = preco_servico.id_servico AND preco_servico.data_validade > curdate() ORDER BY preco_servico.data_validade";
 		$result1 = mysqli_query($conexao, $query);
 
-		while($cliente = mysqli_fetch_assoc($result1))
+		while($servico = mysqli_fetch_assoc($result1))
 		{
 			echo "<tr>";
-			echo "<td>{$cliente['nome_completo']}</td>";
-			echo "<td>{$cliente['telefone_movel']}</td>";
-			echo "<td>{$cliente['email']}</td>";
+			echo "<td>{$servico['tipo_servico']}</td>";
+			echo "<td>{$servico['preco_servico']}</td>";
+			echo "<td>{$servico['data_validade']}</td>";
+			echo "<td><a href='echo $servico['id_servico']''>Edição</a> <a href='echo $servico['id_servico']''>Excluir</a></td>";
 			echo "</tr>";
 		}
 
