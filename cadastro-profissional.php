@@ -25,9 +25,6 @@ $tipo_servico = $_POST["tipo_servico"];
 $aluguel = mysqli_query($conexao, "SELECT id_aluguel FROM aluguel WHERE tipo_aluguel = '$tipo_aluguel'");
 $id_aluguel = mysqli_fetch_assoc($aluguel)['id_aluguel'];
 
-$servico = mysqli_query($conexao, "SELECT id_servico FROM servico WHERE tipo_servico = '$tipo_servico'");
-$id_servico = mysqli_fetch_assoc($servico)['id_servico'];
-
 mysqli_query($conexao, "SELECT cpf_profissional FROM profissional_estetica WHERE cpf_profissional = '$cpf_profissional'");
 if(mysqli_affected_rows($conexao) == 0)
 {
@@ -38,8 +35,14 @@ if(mysqli_affected_rows($conexao) == 0)
 		if($result2)
 		{
 			$id_contrato = mysqli_insert_id($conexao);
-			$result3 = mysqli_query($conexao, "INSERT INTO servico_contrato_profissional_estetica (id_contrato, id_servico) VALUES ('$id_contrato', '$id_servico')");
-			if($result3)
+
+			$result3 = mysqli_query($conexao, "SELECT id_servico FROM servico WHERE tipo_servico = '$tipo_servico'")
+
+			while ($servico = mysqli_fetch_assoc($resut3))
+			{
+			$result4 = mysqli_query($conexao, "INSERT INTO servico_contrato_profissional_estetica (id_contrato, '$servico[id_servico]') VALUES ('$id_contrato', '$servico[id_servico]')");
+			}
+			if($result4)
 				echo "Profissional cadastrado com sucesso!";
 			else
 			{
