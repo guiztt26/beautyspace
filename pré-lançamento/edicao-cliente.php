@@ -6,7 +6,7 @@ $conexao = mysqli_connect("localhost", "root", "") or die("Não foi possível es
 
 mysqli_set_charset($conexao, 'utf8');
 
-mysqli_select_db($conexao, 'beautyspace') or die("Não foi possível acessar o banco de dados");
+mysqli_select_db($conexao, 'b') or die("Não foi possível acessar o banco de dados");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome_completo'])) 
 {

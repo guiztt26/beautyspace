@@ -1,66 +1,104 @@
-<?php
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
-include "includes/validacao.php";
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
-?>
+<form name="cadastrar" method="post" action="http://beautyspace.hol.es/agendar-atendimento-2/" id="cadastrar">
+	<table>
+		<tr>
+			<?php
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-<meta charset = "UTF-8">
-<title>BeautySpace - Agendamento</title>
-<style type="text/css">
-<!--
-.style1 {
-	color: #004000;
-	font-weight: bold;
-}
--->
-</style>
-</head>
-<body leftmargin="0" topmargin="0">
-<div id="meio" style="position:absolute; width:1361px; height:639px; z-index:0; left: 2px; top: -2px; background-color: #EAEAEA; layer-background-color: #EAEAEA; border: 1px none #000000;">
-<div align="center">
-  <p>&nbsp;</p>
-  <p><span class="style1"><font size="5" face="Arial, Helvetica, sans-serif">Agendamento de Atendimento de Clientes </font></span><br>
-    <br>
-  </p>
-</div>
-<form name="cadastrar" method="post" action="agendamento.php" id="cadastrar">
-  <table width="541" border="0" align="center" cellpadding="0" cellspacing="1">
-<tr>
-  <td><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>CPF do Cliente:</strong></font></td>
-  <td><input name="cpf_cliente" type="text" id="cpf_cliente" size="40" maxlength="11"></td>
-</tr>
-<tr>
-<td width="178"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>Tipo de Serviço:</strong></font></td>
-<td width="360"><input name="tipo_servico" type="text" id="tipo_servico" size="40" maxlength="30"></td>
-</tr>
-<tr>
-  <td><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>Profissional de Estética:</strong></font></td>
-  <td><input name="nome_profissional" type="text" id="nome_profissional" size="40" maxlength="48">
-    <label></label></td>
-</tr>
-<tr>
-  <td><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>CPF do Funcionário:</strong></font></td>
-  <td><input name="cpf_funcionario" type="text" id="cpf_funcionario" size="40" maxlength="11"></td>
-</tr>
-<tr>
-<td><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>Data Desejada: </strong></font></td>
-<td><input name="data_agendada" type="date" id="data_agendada" size="40" maxlength="4"></td>
-</tr>
-<tr>
-<td><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>Horário Desejado: </strong></font></td>
-<td><input name="horario" type="time" id="horario" size="40" maxlength="4"></td>
-</tr>
-<tr>
-<td height="39" colspan="2"><div align="center"><input name="enviar" type="submit" id="enviar" value="Enviar Cadastro">
-<input name="limpar" type="reset" id="limpar" value="Limpar Dados">
-</div></td>
-</tr>
-</table>
+			error_reporting (E_ALL & ~ E_NOTICE & ~ E_DEPRECATED);
+
+			$conexao = mysqli_connect("", "", "") or die("Não foi possível estabelecer conexão com o servidor");
+
+			mysqli_set_charset($conexao, 'utf8');
+
+			mysqli_select_db($conexao, '') or die("Não foi possível acessar o banco de dados");
+
+			echo "<tr><td><strong>Cliente:</strong></td>";
+			echo "<td><select name=\"cpf_cliente\"  class=\"js-example-basic-multiple\" id=\"cpf_cliente\" ><option value=\"\">Selecione</option>";
+
+			$r1 = mysqli_query($conexao, "SELECT nome_completo, cpf_cliente FROM cliente ORDER BY nome_completo");
+
+
+			while($cliente = mysqli_fetch_assoc($r1))  
+			{
+				echo "<option value='".$cliente["cpf_cliente"]."'>".$cliente["nome_completo"]."</option>";
+			}
+
+			echo "</select></td></tr>";
+			?>
+		</tr>
+		<tr>
+			<?php
+
+			echo "<tr><td><font><strong>Tipo de Servico:</strong></font></td>";
+			echo "<td><select name=\"tipo_servico\"  id=\"tipo_servico\"><option value=\"\" required=\"\">Selecione</option>";
+
+			$r1 = mysqli_query($conexao, "SELECT tipo_servico FROM servico");
+
+
+			while($servico = mysqli_fetch_assoc($r1))  
+			{
+				echo "<option value='".$servico["tipo_servico"]."'>".$servico["tipo_servico"]."</option>";
+			}
+			echo "</select></td></tr>";
+
+			?>
+		</tr>
+			<?php
+
+			echo "<tr><td><font><strong>Profissional de Estética:</strong></font></td>";
+			echo "<td><select name=\"nome_profissional\"  id=\"nome_profissional\"><option value=\"\" required=\"\">Selecione</option>";
+
+			$r1 = mysqli_query($conexao, "SELECT cpf_profissional, nome_completo FROM profissional_estetica ORDER BY nome_completo");
+
+			while($profissional = mysqli_fetch_assoc($r1))  
+			{
+				echo "<option value='".$profissional["cpf_profissional"]."'>".$profissional["nome_completo"]."</option>";
+			}
+			echo "</select></td></tr>";
+
+			?>
+		<tr>
+  			<td><strong>CPF do Funcionário:</strong></td>
+  			<td><input name="cpf_funcionario" type="text" id="cpf_funcionario" size="100" maxlength="11"></td>
+		</tr>
+		<tr>
+			<td><font><strong>Data Desejada: </strong></font></td>
+			<td><input name="data_agendada" type="date" id="data_agendada" size="100" maxlength="4" required=""></td>
+		</tr>
+		<tr>
+			<td><font><strong>Horário Desejado: </strong></font></td>
+			<td><input name="horario" type="time" id="horario" size="100" maxlength="4" required=""></td>
+		</tr>
+		<tr>
+			<td>
+				<div align="center"><input name="enviar" type="submit" id="enviar" value="Enviar Cadastro"></div>
+			</td>
+		</tr>
+	</table>
 </form>
-<div align="center"><font face="Arial, Helvetica, sans-serif">[ <strong><a href="home.php">Voltar</a> </strong>]</font></div>
-</div>
-</body>
-</html>
+
+
+</style>
+<script type="text/javascript">
+$(".js-example-basic-multiple").select2();
+</script>
+
+<style type="text/css">
+select {
+		width:100%;
+}
+
+.select2-container {
+		width:100% !important;
+		color:#333;
+}
+
+.select2-container .selection {
+		color:#333;
+}
+
+</style>

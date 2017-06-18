@@ -6,7 +6,7 @@ $conexao = mysqli_connect("localhost", "root", "") or die("Não foi possível es
 
 mysqli_set_charset($conexao, 'utf8');
 
-mysqli_select_db($conexao, 'beautyspace') or die("Não foi possível acessar o banco de dados");
+mysqli_select_db($conexao, '') or die("Não foi possível acessar o banco de dados");
 
 $id = $_GET['id'];
 

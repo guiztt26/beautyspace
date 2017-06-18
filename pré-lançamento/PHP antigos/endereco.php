@@ -1,6 +1,6 @@
 <?php
 $conexao = mysqli_connect("localhost","root","") or die("Não foi possível estabelecer conexão com o servidor");
-mysqli_select_db($conexao, 'beautyspace') or die("Não foi possível acessar o banco de dados");
+mysqli_select_db($conexao, '') or die("Não foi possível acessar o banco de dados");
 
 $cep = $_POST["cep"];
 $logradouro = $_POST["logradouro"];

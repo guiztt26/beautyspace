@@ -2,13 +2,14 @@
 
 error_reporting (E_ALL & ~ E_NOTICE & ~ E_DEPRECATED);
 
-$conexao = mysqli_connect("localhost", "root", "") or die("Não foi possível estabelecer conexão com o servidor");
+$conexao = mysqli_connect("", "", "") or die("Não foi possível estabelecer conexão com o servidor");
 
 mysqli_set_charset($conexao, 'utf8');
 
-mysqli_select_db($conexao, 'beautyspace') or die("Não foi possível acessar o banco de dados");
+mysqli_select_db($conexao, '') or die("Não foi possível acessar o banco de dados");
 
 ?>
+
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
 <style>
@@ -47,7 +48,7 @@ mysqli_select_db($conexao, 'beautyspace') or die("Não foi possível acessar o b
 			echo "<td>{$servico['tipo_servico']}</td>";
 			echo "<td>{$servico['preco_servico']}</td>";
 			echo "<td>{$servico['data_validade']}</td>";
-			echo "<td><a href='echo $servico['id_servico']''>Edição</a> <a href='echo $servico['id_servico']''>Excluir</a></td>";
+			echo "<td><a href='http://beautyspace.hol.es/alterar-preco-do-servico?id={$servico['id_preco_servico']}' class='btn btn-edicao'>Edição</a> <a href='http://beautyspace.hol.es/excluir-preco-do-servico?id={$servico['id_preco_servico']}' class='btn btn-exclusao'>Excluir</a></td>";
 			echo "</tr>";
 		}
 
