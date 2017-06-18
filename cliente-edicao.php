@@ -89,7 +89,7 @@ else
 		<tr>
 			<td><font><strong>Estado Civil:</strong></font></td>
 			        <td><select id="estado_civil" name="estado_civil" size="1">
-                                <option value="<?php echo $cliente['estado_civil'] ?>"><?php echo $cliente['cep'] ?></option>
+                                <option value="<?php echo $cliente['estado_civil'] ?>"><?php echo $cliente['estado_civil'] ?></option>
                                 <option value="Casado(a)">Casado(a)</option>
                                 <option value="Solteiro(a)">Solteiro(a)</option>
                                 <option value="Viúvo(a)">Viúvo(a)</option>
