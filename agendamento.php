@@ -14,9 +14,6 @@ $data = $_POST["data_agendada"];
 $horario = $_POST["horario"];
 $cpf_funcionario = $_POST["cpf_funcionario"];
 
-$profissional = mysqli_query($conexao, "SELECT cpf_profissional FROM profissional_estetica WHERE nome_profissional = '$nome_profissional'");
-$cpf_profissional = mysqli_fetch_assoc($profissional)['cpf_profissional'];
-
 $servico = mysqli_query($conexao, "SELECT id_servico FROM servico WHERE tipo_servico = '$tipo_servico'");
 $id_servico = mysqli_fetch_assoc($servico)['id_servico'];
 
@@ -26,8 +23,7 @@ $id_contrato = mysqli_fetch_assoc($contrato_profissional)['id_contrato'];
 $contrato_servico = mysqli_query($conexao, "SELECT id_contrato_servico FROM servico_contrato_profissional_estetica WHERE id_contrato = '$id_contrato' and id_servico = '$id_servico'");
 $id_contrato_servico = mysqli_fetch_assoc($contrato_servico)['id_contrato_servico'];
 
-if($profissional)
-{
+
 	if($servico)
 	{
 		if($contrato_profissional)
@@ -71,7 +67,6 @@ if($profissional)
 				else
 				{
 					echo "Este cliente ainda não possui um cadastro. Por favor, verifique o CPF digitado ou cadastre o cliente no sistema.<br><br>";
-					echo "<a href="cadastro-cliente.html" target="_blank">Cadastro de cliente</a>";
 				}
 			}
 			else
@@ -86,9 +81,7 @@ if($profissional)
 		}
 	else
 		echo "Este serviço não está cadastrado no sistema. Por favor, verifique se digitou o nome do serviço corretamente ou selecione um serviço diferente.";
-}
-else
-	echo "Este profissional não está cadastrado. Por favor, verifique se digitou o nome corretamente ou selecione um profissional diferente.";
+
 
 mysqli_close($conexao);
 ?>
